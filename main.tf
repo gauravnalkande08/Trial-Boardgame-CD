@@ -94,10 +94,7 @@ module "webappjava" {
   java_server           = "TOMCAT"
   java_server_version   = "10.0"
   java_artifact_version = var.java_artifact_version
-  artifact_path         = Desktop/Trial-Boardgame-CD-Webapp-main/boardgame-artifact/
-  #depends_on = [
-  #  null_resource.download_java_artifact,
-  #]
+  artifact_path         = "Trial-Boardgame-CD-Webapp-main/boardgame-artifact/"
 }
 
 # webapp dotnet kino ref app (Still commented out)
