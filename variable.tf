@@ -10,18 +10,18 @@ variable "support_resource_group" {
   default     = "t-kinog-support-rg" # Added type and default
 }
 
-variable "jfrog_url" {
-  description = "The base URL for your JFrog Artifactory instance (e.g., https://myorg.jfrog.io/artifactory)."
-  type        = string # Added type - no default, so must be provided in tfvars or CLI
-}
+#variable "jfrog_url" {
+#  description = "The base URL for your JFrog Artifactory instance (e.g., https://myorg.jfrog.io/artifactory)."
+#  type        = string # Added type - no default, so must be provided in tfvars or CLI
+#}
 
-variable "jfrog_user" {}
+#variable "jfrog_user" {}
 
-variable "jfrog_password" {}
+#variable "jfrog_password" {}
 
-variable "JFROG_PASSWORD" {}
+#variable "JFROG_PASSWORD" {}
 
-variable "JFROG_USER" {}
+#variable "JFROG_USER" {}
 
 # IMPORTANT: JFROG_USER and JFROG_PASSWORD should NOT be defined as Terraform variables
 # that you pass directly into local-exec. Instead, set them as environment variables
