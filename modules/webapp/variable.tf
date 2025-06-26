@@ -70,7 +70,7 @@ variable "dotnet_version" {
 #  type        = string
 #}
 
-variable "artifact_path" { # Re-added: This variable now holds the path to the downloaded .zip
-  description = "The local file path to the ZIP artifact for deployment."
-  type        = string
-}
+#variable "artifact_path" { # Re-added: This variable now holds the path to the downloaded .zip
+#  description = "The local file path to the ZIP artifact for deployment."
+#  type        = string
+#}
