@@ -61,7 +61,7 @@ module "resourcegroup" {
 # App Service Plan
 module "appserviceplan1" {
   source                = "./modules/appServicePlan"
-  app_service_plan_name = "b-appserviceplan-java-kino"
+  app_service_plan_name = "b-appsvcplan-java-kino"
   resource_group_name   = module.resourcegroup.name
   location              = var.location
   sku_name              = "P1v2"
@@ -84,7 +84,7 @@ module "appserviceplan1" {
 # webapp java kino ref app
 module "webappjava" {
   source                = "./modules/webapp"
-  webapp_name           = "b-webapp-java-kino"
+  webapp_name           = "bdgame-app-java-kino"
   service_plan_id       = module.appserviceplan1.id
   location              = var.location
   resource_group_name   = module.resourcegroup.name
