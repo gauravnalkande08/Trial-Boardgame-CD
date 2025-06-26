@@ -36,7 +36,7 @@ variable "dotnet_artifact_version" {
   default     = "0.0.0" # Added default, as the module expects a string even if not used.
 }
 
-variable "java_artifact_version" {
-  description = "The specific version of the Java application artifact to download and deploy (e.g., '1.0.0' or 'build-456'). Changing this value will trigger a new download and deployment."
-  type        = string # No default, so must be provided in tfvars or CLI
-}
+#variable "java_artifact_version" {
+#  description = "The specific version of the Java application artifact to download and deploy (e.g., '1.0.0' or 'build-456'). Changing this value will trigger a new download and deployment."
+#  type        = string # No default, so must be provided in tfvars or CLI
+#}
