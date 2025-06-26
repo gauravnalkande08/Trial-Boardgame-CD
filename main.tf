@@ -1,28 +1,28 @@
-locals {
-  # Path where the pre-zipped artifact will be downloaded locally
-  java_artifact_local_path = "${path.cwd}/artifacts/database_service_project-${var.java_artifact_version}-SNAPSHOT-SNAPSHOT.zip"
-}
+#locals {
+# # Path where the pre-zipped artifact will be downloaded locally
+# java_artifact_local_path = "${path.cwd}/artifacts/database_service_project-${var.java_artifact_version}-SNAPSHOT-SNAPSHOT.zip"
+#}
 
 # Resource to download the Java artifact
-resource "null_resource" "download_java_artifact" {
-  triggers = {
-    artifact_version = var.java_artifact_version
-  }
+#resource "null_resource" "download_java_artifact" {
+#  triggers = {
+#    artifact_version = var.java_artifact_version
+#  }
 
-  provisioner "local-exec" {
-    environment = {
-      JFROG_USER     = var.jfrog_user
-      JFROG_PASSWORD = var.jfrog_password
-    }
-    command = <<-EOT
-      echo "Attempting to create artifacts directory..."
-      mkdir -p ./artifacts
-      echo "Downloading deployment zip from JFrog Artifactory..."
-      curl -u "$JFROG_USER:$JFROG_PASSWORD" "${var.jfrog_url}database_service_project-${var.java_artifact_version}-SNAPSHOT-SNAPSHOT.zip" -o "${local.java_artifact_local_path}"
-      echo "Deployment zip downloaded to: ${local.java_artifact_local_path}"
-    EOT
-  }
-}
+#  provisioner "local-exec" {
+#    environment = {
+#      JFROG_USER     = var.jfrog_user
+#      JFROG_PASSWORD = var.jfrog_password
+#    }
+#    command = <<-EOT
+#      echo "Attempting to create artifacts directory..."
+#      mkdir -p ./artifacts
+#      echo "Downloading deployment zip from JFrog Artifactory..."
+#      curl -u "$JFROG_USER:$JFROG_PASSWORD" "${var.jfrog_url}database_service_project-${var.java_artifact_version}-SNAPSHOT-SNAPSHOT.zip" -o "${local.java_artifact_local_path}"
+#      echo "Deployment zip downloaded to: ${local.java_artifact_local_path}"
+#    EOT
+#  }
+#}
 
 module "resourcegroup" {
   source   = "./modules/resourceGroup"
@@ -94,10 +94,10 @@ module "webappjava" {
   java_server           = "TOMCAT"
   java_server_version   = "10.0"
   java_artifact_version = var.java_artifact_version
-  artifact_path         = local.java_artifact_local_path # Pass the local path to the module
-  depends_on = [
-    null_resource.download_java_artifact,
-  ]
+  artifact_path         = Desktop/Trial-Boardgame-CD-Webapp-main/boardgame-artifact/
+  #depends_on = [
+  #  null_resource.download_java_artifact,
+  #]
 }
 
 # webapp dotnet kino ref app (Still commented out)
